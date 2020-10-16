@@ -8,7 +8,7 @@ async function run(): Promise<void> {
     const {context, getOctokit} = github;
     const octokit = getOctokit(token);
 
-    const pull_requests = await octokit.issues.listPullRequestsAssociatedWithCommit({
+    const pull_requests = await octokit.repos.listPullRequestsAssociatedWithCommit({
       ...context.repo,
       commit_sha: context.sha
     });
