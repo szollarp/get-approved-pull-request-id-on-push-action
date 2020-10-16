@@ -3718,7 +3718,7 @@ function run() {
             const token = core.getInput('token', { required: true });
             const { context, getOctokit } = github;
             const octokit = getOctokit(token);
-            const pull_requests = yield octokit.issues.listPullRequestsAssociatedWithCommit(Object.assign(Object.assign({}, context.repo), { commit_sha: context.sha }));
+            const pull_requests = yield octokit.repos.listPullRequestsAssociatedWithCommit(Object.assign(Object.assign({}, context.repo), { commit_sha: context.sha }));
             console.log(pull_requests);
         }
         catch (error) {
