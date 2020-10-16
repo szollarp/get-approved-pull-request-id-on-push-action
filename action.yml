@@ -1,0 +1,16 @@
+name: Get pull request id
+description: Get pull request id from on push event.
+author: Peter Szollar
+inputs:
+  token:
+    description: GitHub token.
+    required: true
+outputs:
+  id:
+    description: Pull request id
+runs:
+  using: node12
+  main: dist/index.js
+branding:
+  icon: tag  
+  color: orange
