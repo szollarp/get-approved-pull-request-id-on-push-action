@@ -1,7 +1,7 @@
 {
   "name": "get-approved-pull-request-id-on-push-action",
   "version": "1.0.0",
-  "description": "Get pull request id from on push",
+  "description": "Get pull requests ids from on push",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc && ncc build",
