@@ -6,8 +6,8 @@ inputs:
     description: GitHub token.
     required: true
 outputs:
-  id:
-    description: Pull request id
+  ids:
+    description: Pull requests ids
 runs:
   using: node12
   main: dist/index.js

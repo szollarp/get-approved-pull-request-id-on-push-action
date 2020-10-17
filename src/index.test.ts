@@ -1,3 +1,3 @@
-describe('Test', () => {
-  it('test', async () => {});
+describe("Test", () => {
+  it("test", async () => {});
 });

@@ -3715,11 +3715,16 @@ const github = __webpack_require__(469);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const token = core.getInput('token', { required: true });
+            const token = core.getInput("token", { required: true });
             const { context, getOctokit } = github;
             const octokit = getOctokit(token);
             const pull_requests = yield octokit.repos.listPullRequestsAssociatedWithCommit(Object.assign(Object.assign({}, context.repo), { commit_sha: context.sha }));
-            console.log(pull_requests);
+            if (!pull_requests) {
+                core.setOutput("id", null);
+            }
+            const closed = pull_requests.data.filter((pr) => pr.state === "closed");
+            const ids = closed.map(({ id }) => id);
+            core.setOutput("ids", ids);
         }
         catch (error) {
             core.error(error);
